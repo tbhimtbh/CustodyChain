@@ -146,8 +146,8 @@ func (s *SmartContract) TransferAsset(ctx contractapi.TransactionContextInterfac
                 return "", err
         }
 
-        oldcustodianName := asset.custodianName
-        asset.custodianName = newcustodianName
+        oldcustodianName := asset.CustodianName
+        asset.CustodianName = newcustodianName
 
         assetJSON, err := json.Marshal(asset)
         if err != nil {
