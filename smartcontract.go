@@ -72,14 +72,14 @@ func (s *SmartContract) CreateAsset(ctx contractapi.TransactionContextInterface,
         return ctx.GetStub().PutState(custodianName, assetJSON)
 }
 
-// ReadAsset returns the asset stored in the world state with given custodianName.
-func (s *SmartContract) ReadAsset(ctx contractapi.TransactionContextInterface, custodianName string) (*Asset, error) {
-        assetJSON, err := ctx.GetStub().GetState(custodianName)
+// ReadAsset returns the asset stored in the world state with given caseNumber.
+func (s *SmartContract) ReadAsset(ctx contractapi.TransactionContextInterface, caseNumber string) (*Asset, error) {
+        assetJSON, err := ctx.GetStub().GetState(caseNumber)
         if err != nil {
                 return nil, fmt.Errorf("failed to read from world state: %v", err)
         }
         if assetJSON == nil {
-                return nil, fmt.Errorf("the asset %s does not exist", custodianName)
+                return nil, fmt.Errorf("the asset %s does not exist", caseNumber)
         }
 
         var asset Asset
