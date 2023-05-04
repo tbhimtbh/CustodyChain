@@ -140,8 +140,8 @@ func (s *SmartContract) AssetExists(ctx contractapi.TransactionContextInterface,
 }
 
 // TransferAsset updates the owner field of asset with given id in world state, and returns the old owner.
-func (s *SmartContract) TransferAsset(ctx contractapi.TransactionContextInterface, custodianName string, newcustodianName string) (string, error) {
-        asset, err := s.ReadAsset(ctx, custodianName)
+func (s *SmartContract) TransferAsset(ctx contractapi.TransactionContextInterface, caseNumber string, newcustodianName string) (string, error) {
+        asset, err := s.ReadAsset(ctx, caseNumber)
         if err != nil {
                 return "", err
         }
@@ -154,7 +154,7 @@ func (s *SmartContract) TransferAsset(ctx contractapi.TransactionContextInterfac
                 return "", err
         }
 
-        err = ctx.GetStub().PutState(custodianName, assetJSON)
+        err = ctx.GetStub().PutState(caseNumber, assetJSON)
         if err != nil {
                 return "", err
         }
