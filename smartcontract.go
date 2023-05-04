@@ -25,8 +25,12 @@ type Asset struct {
 // InitLedger adds a base set of assets to the ledger
 func (s *SmartContract) InitLedger(ctx contractapi.TransactionContextInterface) error {
         assets := []Asset{
-		{CustodianName: "John Doe", CustodianAgency: "Agency A", CaseNumber: "1", EvidenceInfo: "Some info about the evidence"},
-		{CustodianName: "Jane Doe", CustodianAgency: "Agency B", CaseNumber: "2", EvidenceInfo: "Some info about the evidence"},
+		{CustodianName: "Zaki", CustodianAgency: "RCED", CaseNumber: "1", EvidenceInfo: "HP01/HP02"},
+		{CustodianName: "Aya", CustodianAgency: "RBPF", CaseNumber: "2", EvidenceInfo: "HP01/HP02/HP03"},
+		{CustodianName: "Adi", CustodianAgency: "KDN", CaseNumber: "3", EvidenceInfo: "HP01/HP02/SIM01/SIM02"},
+		{CustodianName: "Dan", CustodianAgency: "CSB", CaseNumber: "4", EvidenceInfo: "HP01/HP02/SIM01/"},
+		{CustodianName: "Azmi", CustodianAgency: "RCED", CaseNumber: "5", EvidenceInfo: "HP01/HP02/HP03/SIM01/SIM02"},
+		{CustodianName: "Mirul", CustodianAgency: "CSB", CaseNumber: "6", EvidenceInfo: "HP01/HP02/HP03/SIM01/SIM02/SIM03"},
 	}
 
         for _, asset := range assets {
